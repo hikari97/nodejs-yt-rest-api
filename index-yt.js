@@ -1,7 +1,7 @@
 const cheerio = require("cheerio");
 const { Config } = require("./conf");
 
-const url = "https://www.youtube.com//";
+const url = "https://www.youtube.com";
 
 const IndexYT = async () => {
   return await Config(url)
@@ -13,7 +13,7 @@ const IndexYT = async () => {
         const src = $(this).attr();
         IndexResult.push({
           title: src.title,
-          url: src.href,
+          url: `${url}${src.href}`,
           // atr: src,
         });
       });
